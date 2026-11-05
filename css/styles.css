@@ -1,153 +1,81 @@
 
-:root {
-    --primary: #0b1f4d;
-    --accent: #f5c542;
-    --background: #f4f6fa;
-    --text: #222222;
-}
-
-/* General page styling */
+/* Body styling */
 body {
-    font-family: Arial, sans-serif;
-    background-color: var(--background);
-    color: var(--text);
-    margin: 0;
-    padding-top: 60px;
-}
-
-/* Navigation bar */
-nav {
-    background-color: var(--primary);
-    padding: 18px;
-    text-align: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    box-sizing: border-box;
-    z-index: 10;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    margin: 15px;
-}
-
-nav a:hover {
-    color: var(--accent);
+    background-color: lightblue;
+    font-family: Arial;
+    margin: 20px;
 }
 
 /* Main heading */
 h1 {
+    color: darkblue;
     text-align: center;
-    color: var(--primary);
-    padding: 15px;
 }
 
-/* Hero section */
-.hero {
-    background: linear-gradient(to right, #0b1f4d, #2456a6);
-    color: white;
-    text-align: center;
-    padding: 50px 20px;
-}
-
-.hero h2 {
-    color: white;
-}
-
-.hero a {
-    display: inline-block;
-    background-color: var(--accent);
-    color: var(--primary);
-    padding: 12px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-}
-
-.hero a:hover {
-    background-color: #e0ad20;
-}
-
-/* Section headings */
+/* Other headings */
 h2 {
-    color: var(--primary);
-    text-align: center;
+    color: darkred;
 }
 
-/* Match table */
+/* Paragraph */
+p {
+    color: black;
+    font-size: 16px;
+}
+
+/* Table */
 table {
-    width: 90%;
-    margin: 20px auto;
-    border-collapse: collapse;
+    width: 100%;
     background-color: white;
+    border-collapse: collapse;
 }
 
 th {
-    background-color: var(--primary);
+    background-color: darkblue;
     color: white;
-    padding: 12px;
+    padding: 10px;
 }
 
 td {
-    padding: 12px;
+    padding: 10px;
     text-align: center;
 }
 
 th, td {
-    border: 1px solid #cccccc;
+    border: 1px solid black;
 }
 
-/* Booking form */
+/* Form */
 form {
     background-color: white;
-    width: 350px;
-    max-width: 85%;
-    margin: 20px auto;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px #cccccc;
-    box-sizing: border-box;
+    padding: 20px;
+    width: 300px;
 }
 
+/* Input fields */
 input, select {
-    width: 100%;
-    padding: 10px;
-    margin-top: 8px;
-    margin-bottom: 15px;
-    box-sizing: border-box;
-    border: 1px solid #cccccc;
-    border-radius: 5px;
+    padding: 8px;
+    margin: 8px;
 }
 
+/* Button */
 button {
-    background-color: var(--primary);
+    background-color: darkblue;
     color: white;
-    padding: 12px 20px;
+    padding: 10px;
     border: none;
-    border-radius: 5px;
-    cursor: pointer;
 }
 
-button:hover {
-    background-color: #2456a6;
-}
-
-/* Instructions */
+/* List */
 ul {
     background-color: white;
-    padding: 25px 45px;
-    margin: 20px auto;
-    width: fit-content;
-    border-radius: 8px;
+    padding: 25px;
 }
 
 /* Footer */
 footer {
-    background-color: var(--primary);
+    background-color: darkblue;
     color: white;
     text-align: center;
-    padding: 15px;
-    margin-top: 30px;
+    padding: 10px;
 }

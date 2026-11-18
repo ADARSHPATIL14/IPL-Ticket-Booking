@@ -1,0 +1,76 @@
+
+/* Navigation Bar */
+.navbar {
+    background-color: black;
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+/* Hero Section */
+.hero {
+    background-color: #eeeeee;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.hero h1 {
+    font-size: 36px;
+}
+
+.hero-button {
+    display: inline-block;
+    background-color: black;
+    color: white;
+    padding: 12px 20px;
+    text-decoration: none;
+    margin-top: 15px;
+}
+
+/* Matches Section */
+.section-title {
+    text-align: center;
+    margin-top: 35px;
+}
+
+.matches-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 25px;
+}
+
+/* Match Card */
+.match-card {
+    border: 1px solid gray;
+    border-radius: 8px;
+    padding: 20px;
+    width: 220px;
+    text-align: center;
+}
+
+.match-card button {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    cursor: pointer;
+}
+
+/* Footer */
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 30px;
+}

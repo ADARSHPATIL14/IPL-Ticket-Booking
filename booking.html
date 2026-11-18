@@ -4,13 +4,12 @@
 <head>
     <title>IPL Ticket Booking Form</title>
 
-    <!-- Linking CSS file -->
     <link rel="stylesheet" href="css/styles.css">
+    <script src="js/app.js" defer></script>
 </head>
 
 <body>
 
-    <!-- Navigation Bar -->
     <nav>
         <a href="index.html">Home</a>
         <a href="index.html#matches">Matches</a>
@@ -19,7 +18,6 @@
         <a href="booking.html">Book Tickets</a>
     </nav>
 
-    <!-- Main Heading -->
     <h1>IPL 2026 Ticket Booking</h1>
 
     <h2>Book Your Tickets</h2>
@@ -28,10 +26,8 @@
 
     <hr>
 
-    <!-- Booking Form -->
-    <form>
+    <form id="booking-form">
 
-        <!-- Name -->
         <label>Enter Your Name:</label>
         <input type="text"
                name="username"
@@ -41,7 +37,6 @@
 
         <br><br>
 
-        <!-- Email -->
         <label>Enter Your Email:</label>
         <input type="email"
                name="email"
@@ -49,7 +44,6 @@
 
         <br><br>
 
-        <!-- Phone Number -->
         <label>Enter Your Phone Number:</label>
         <input type="tel"
                name="phone"
@@ -62,7 +56,7 @@
         <!-- Match Selection -->
         <label>Select Match:</label>
 
-        <select name="match" required>
+        <select name="match" id="match-select" required>
             <option value="">-- Select Match --</option>
             <option value="RCB vs SRH">RCB vs SRH</option>
             <option value="MI vs KKR">MI vs KKR</option>
@@ -74,7 +68,7 @@
         <!-- Stand Category -->
         <label>Select Stand Category:</label>
 
-        <select name="stand" required>
+        <select name="stand" id="stand-select" required>
             <option value="">-- Select Stand --</option>
             <option value="General">General Stand</option>
             <option value="Premium">Premium Stand</option>
@@ -88,6 +82,7 @@
 
         <input type="number"
                name="tickets"
+               id="ticket-quantity"
                min="1"
                max="10"
                required>
@@ -114,16 +109,39 @@
 
         <br><br>
 
-        <!-- Submit and Reset Buttons -->
         <button type="submit">Submit Booking</button>
 
         <button type="reset">Reset Form</button>
 
     </form>
 
+    <!-- Booking Summary Card -->
+    <div class="booking-summary">
+
+        <h2>Booking Summary</h2>
+
+        <p>Selected Match:
+            <strong id="summary-match">Not selected</strong>
+        </p>
+
+        <p>Stand Category:
+            <strong id="summary-stand">Not selected</strong>
+        </p>
+
+        <p>Ticket Quantity:
+            <strong id="summary-quantity">Not selected</strong>
+        </p>
+
+        <hr>
+
+        <h3>Total Price:
+            <span id="summary-total">₹0</span>
+        </h3>
+
+    </div>
+
     <hr>
 
-    <!-- Additional Information -->
     <h2>Booking Instructions</h2>
 
     <ul>
@@ -134,12 +152,10 @@
         <li>Check all details before submitting the form.</li>
     </ul>
 
-    <!-- Back to Home Page -->
     <p>
         <a href="index.html">Back to Home Page</a>
     </p>
 
-    <!-- Footer -->
     <footer>
         <p>© 2026 IPL Ticket Booking</p>
         <p>Thank you for choosing us!</p>

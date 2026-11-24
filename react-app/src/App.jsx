@@ -1,81 +1,88 @@
 
+import { useCallback, useEffect, useState } from "react";
+
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import MatchCard from "./components/MatchCard";
+
 import { supabase } from "./supabase.js";
 import "./App.css";
 
 function App() {
+  const [matches, setMatches] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
-    // Match details stored in an array
-    const matches = [
-        {
-            id: 1,
-            team1: "RCB",
-            team2: "SRH",
-            date: "10 April 2026",
-            venue: "Bengaluru",
-            price: 800
-        },
+  const fetchMatches = useCallback(async () => {
+    const { data, error: fetchError } = await supabase
+      .from("matches")
+      .select("*")
+      .order("id", { ascending: true });
 
-        {
-            id: 2,
-            team1: "MI",
-            team2: "KKR",
-            date: "12 April 2026",
-            venue: "Mumbai",
-            price: 1000
-        },
+    if (fetchError) {
+      console.error("Error fetching matches:", fetchError.message);
+      setError(fetchError.message);
+      return;
+    }
 
-        {
-            id: 3,
-            team1: "CSK",
-            team2: "RR",
-            date: "14 April 2026",
-            venue: "Chennai",
-            price: 700
-        }
-    ];
+    setMatches(data || []);
+    setError("");
+  }, []);
 
-    return (
-        <div>
+  useEffect(() => {
+    async function loadMatches() {
+      setLoading(true);
+      await fetchMatches();
+      setLoading(false);
+    }
 
-            <Navbar />
+    loadMatches();
+  }, [fetchMatches]);
 
-            <Hero />
+  return (
+    <div>
+      <Navbar />
 
-            <section id="matches">
+      <Hero />
 
-                <h2 className="section-title">
-                    Available Matches
-                </h2>
+      <section id="matches">
+        <h2 className="section-title">
+          Available Matches
+        </h2>
 
-                <div className="matches-container">
+        <div className="matches-container">
+          {loading && <p>Loading matches...</p>}
 
-                    {matches.map((match) => (
+          {!loading && error && (
+            <p>Unable to load matches: {error}</p>
+          )}
 
-                        <MatchCard
-                            key={match.id}
-                            team1={match.team1}
-                            team2={match.team2}
-                            date={match.date}
-                            venue={match.venue}
-                            price={match.price}
-                        />
+          {!loading && !error && matches.length === 0 && (
+            <p>No matches available.</p>
+          )}
 
-                    ))}
-
-                </div>
-
-            </section>
-
-            <footer id="booking">
-                <p>© 2026 IPL Ticket Booking</p>
-                <p>Enjoy the excitement of IPL!</p>
-            </footer>
-
+          {!loading && !error && matches.map((match) => (
+            <MatchCard
+              key={match.id}
+              id={match.id}
+              team1={match.team1}
+              team2={match.team2}
+              date={match.date}
+              venue={match.venue}
+              price={match.price}
+              available_seats={match.available_seats}
+              onBookingSuccess={fetchMatches}
+            />
+          ))}
         </div>
-    );
+      </section>
+
+      <footer id="booking">
+        <p>© 2026 IPL Ticket Booking</p>
+        <p>Enjoy the excitement of IPL!</p>
+      </footer>
+    </div>
+  );
 }
 
 export default App;

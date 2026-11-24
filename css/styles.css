@@ -34,7 +34,7 @@ p {
 /* Navigation Bar using Flexbox */
 
 .site-header {
-    background-color: darkblue;
+    background-color: rgb(139, 56, 0);
 }
 
 .navbar {
@@ -45,7 +45,7 @@ p {
 }
 
 .logo {
-    color: white;
+    color: rgb(255, 255, 255);
     font-size: 24px;
     font-weight: bold;
     text-decoration: none;
@@ -89,7 +89,7 @@ p {
 }
 
 .hero h2 {
-    color: darkred;
+    color: rgb(0, 139, 46);
 }
 
 .hero-button {
